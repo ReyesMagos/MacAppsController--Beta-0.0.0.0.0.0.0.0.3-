@@ -47,26 +47,21 @@ public class MainActivity extends Activity {
 		buttonConnect = (Button) findViewById(R.id.connect);
 		buttonClear = (Button) findViewById(R.id.clear);
 		textResponse = (TextView) findViewById(R.id.response);
-		txtMensaje = (EditText) findViewById(R.id.txtMensaje);
+		
 	}
 
 	public void btnClear_Click(View v) {
 		textResponse.setText("");
 	}
 
-	public void click(View v) {
-		String s = txtMensaje.getText().toString();
-		if (txtMensaje != null && txtMensaje.length() > 3) {
-			miServidor.sendMessage(s);
-		}
-	}
+	
 
 	public void btnConectar_Click(View v) {
 		String ip;
 		String port;
 		port = editTextPort.getText().toString();
 		ip = editTextAddress.getText().toString();
-		if (ip != null && ip.length() > 12) {
+		if (ip != null && ip.length() >= 11) {
 			if (port != null && port.length() > 1) {
 				if (Utilities.checkStringToText(port)) {
 					controladorServidor = new ServerController(ip,
