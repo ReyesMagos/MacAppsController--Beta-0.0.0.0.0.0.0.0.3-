@@ -6,6 +6,7 @@ public class ComunicadorGeneral {
 
 	public static ServerController controller;
 
+
 	public static ServerController getController() {
 		return controller;
 	}
@@ -13,6 +14,8 @@ public class ComunicadorGeneral {
 	public static void setController(ServerController controller) {
 		ComunicadorGeneral.controller = controller;
 	}
+
+	
 	
 	
 

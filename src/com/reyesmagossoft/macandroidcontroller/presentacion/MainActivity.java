@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-	TextView textResponse;
+	static TextView textResponse;
 	EditText editTextAddress, editTextPort;
 	Button buttonConnect, buttonClear;
 	TextView txtMensaje;
@@ -48,6 +48,10 @@ public class MainActivity extends Activity {
 		buttonClear = (Button) findViewById(R.id.clear);
 		textResponse = (TextView) findViewById(R.id.response);
 		
+	}
+	
+	public static void showResponse(String s){
+		textResponse.setText(s);
 	}
 
 	public void btnClear_Click(View v) {

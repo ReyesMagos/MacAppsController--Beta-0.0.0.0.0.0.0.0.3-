@@ -47,5 +47,21 @@
         android:id="@+id/volumenBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    
+       <ImageView
+            android:id="@+id/btnTrackName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="btnGetTrackName_Click"
+            android:src="@drawable/nextbnt" />
+
+       <TextView
+           android:id="@+id/txtCancionActual"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text=""
+           android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

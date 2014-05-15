@@ -3,6 +3,7 @@ package com.reyesmagossoft.macandroidcontroller.modelo.controladores;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.reyesmagossoft.macandroidcontroller.presentacion.MainActivity;
 import com.reyesmagossoft.macandroidcontroller.presentacion.SpotifyActivity;
 import com.reyesmagossoft.macandroidcontroller.servicios.Servidor;
 
@@ -35,6 +36,12 @@ public class ServerController {
 
 	public void avisaConexion() {
 		conectado = true;
+	}
+	
+	public void showCurrentSongName(String s){
+		
+		if(s==null)return;
+		SpotifyActivity.showCurrentSongName(s);
 	}
 
 }
