@@ -10,17 +10,20 @@ import java.net.UnknownHostException;
 
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
 import com.reyesmagossoft.macandroidcontroller.modelo.controladores.ServerController;
+import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities.Resultado;
 
+import android.database.CursorJoiner.Result;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class Servidor extends AsyncTask<Void, String, Void> {
+public class Servidor extends AsyncTask<Void, String, Boolean> {
 
 	String dstAddress;
 	int dstPort;
 	String response = "";
 	ObjectOutputStream out;
 	String firstResponse = "";
+	Resultado resultado;
 
 	public Servidor(String addr, int port) {
 		super();
@@ -50,20 +53,16 @@ public class Servidor extends AsyncTask<Void, String, Void> {
 	}
 
 	@Override
-	protected Void doInBackground(Void... arg0) {
+	protected Boolean doInBackground(Void... arg0) {
 
 		Socket socket = null;
+		boolean resultado = false;
 
 		try {
 			socket = new Socket(dstAddress, dstPort);
 			out = new ObjectOutputStream(socket.getOutputStream());
 			out.flush();
 
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(
-					1024);
-			byte[] buffer = new byte[1024];
-
-			int bytesRead;
 			ObjectInputStream inputStream = new ObjectInputStream(
 					socket.getInputStream());
 
@@ -71,26 +70,13 @@ public class Servidor extends AsyncTask<Void, String, Void> {
 			 * notice: inputStream.read() will block if no data return
 			 */
 			response = " ";
-			int pos = 0;
+
 			while (!response.equals("bye")) {
 				response = (String) inputStream.readObject();
 				Log.i("respuesta iiii ", response);
-				 publishProgress(response);
+				publishProgress(response);
 			}
-
-			Log.i("respuesta iiii ", response);
-
-			/*
-			 * / while ((bytesRead = inputStream.read(buffer)) != -1) {
-			 * byteArrayOutputStream.write(buffer, 0, bytesRead);
-			 * 
-			 * response = byteArrayOutputStream.toString("UTF-8"); if
-			 * (!response.equals(firstResponse)) { publishProgress(response); }
-			 * 
-			 * firstResponse = response; } /
-			 */
-
-			// Log.i("respuesta", response);
+			resultado = true;
 
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -114,16 +100,20 @@ public class Servidor extends AsyncTask<Void, String, Void> {
 				}
 			}
 		}
-		return null;
+		return resultado;
 	}
 
 	@Override
-	protected void onPostExecute(Void result) {
+	protected void onPostExecute(Boolean result) {
 		// textResponse.setText(response);
 
 		super.onPostExecute(result);
 		Log.i("respuesta", response);
-		ComunicadorGeneral.getController().showCurrentSongName(response);
+		if (result) {
+			ComunicadorGeneral.getController().showCurrentSongName(response);
+		}else{
+			ComunicadorGeneral.getController().showCurrentSongName("Error");
+		}
 	}
 
 }

@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="14"
         android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.reyesmagossoft.macandroidcontroller.presentacion.MainActivity"
+            android:name="com.reyesmagossoft.macandroidcontroller.presentacion.actividades.GestionarConexion"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.reyesmagossoft.macandroidcontroller.presentacion.SpotifyActivity"
+            android:name="com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SpotifyActivity"
             android:label="@string/title_activity_spotify" >
+        </activity>
+        <activity
+            android:name="com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SelectApplications"
+            android:label="@string/title_activity_select_applications" >
         </activity>
     </application>
 
