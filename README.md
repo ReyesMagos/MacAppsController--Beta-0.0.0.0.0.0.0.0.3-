@@ -1,5 +1,3 @@
-MacAppsController--Beta-0.0.0.0.0.0.0.0.1-
+MacAppsController--Beta-0.0.0.0.0.0.0.0.3-
 ==========================================
-Version previa de un controlador multiple de aplicaciones de mac via un dispositivo android.
-Hasta el momento se tiene desarrollado un cliente android para un servidor de sockets tcp,
-con la habilidad para controlar via AppleScripts la aplicacion Spotify. 
+Se la actividad que servirá para seleccionar la actividad que se querrá controlar. Esta actividad contendrá un gridview, para set ose añade un adaptador personalizado.. y se comentan algunas clases del código. Por el momento el acceso a spotify atravez del menu esta inhabilitado. Pero podrían conectarlo atravez del grid :)
