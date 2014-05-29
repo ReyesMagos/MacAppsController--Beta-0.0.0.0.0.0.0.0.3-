@@ -16,7 +16,7 @@ public class SelectApplications extends Activity {
 		setContentView(R.layout.activity_selector_app);
 		// Añadimos al comunicador la actividad presente
 		ComunicadorGeneral.setCurrentActivity(this);
-
+		ComunicadorGeneral.setCurrentActivityName("Selecccion");
 		// Creamos el nuevo fragmento que utilizaremos
 		FragmentosActividades fgrActividades = new FragmentosActividades();
 

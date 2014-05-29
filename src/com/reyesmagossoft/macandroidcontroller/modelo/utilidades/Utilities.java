@@ -47,7 +47,7 @@ public class Utilities {
 	 * 
 	 */
 	public static enum ActividadActual {
-		Spotify, Chrome, Error;
+		Spotify, Chrome, Selecccion, Gestion, Error;
 	}
 
 	/**

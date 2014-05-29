@@ -1,6 +1,7 @@
 package com.reyesmagossoft.macandroidcontroller.presentacion.actividades;
 
 import com.example.androidclient.R;
+import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
 import com.reyesmagossoft.macandroidcontroller.presentacion.fragments.FragmentSpotify;
 
 import android.os.Bundle;
@@ -15,7 +16,7 @@ public class SpotifyActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spotify);
-
+		ComunicadorGeneral.setCurrentActivityName("Spotify");
 		FragmentSpotify frgSpotify = new FragmentSpotify();
 
 		

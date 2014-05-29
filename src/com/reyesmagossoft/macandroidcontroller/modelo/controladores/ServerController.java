@@ -85,10 +85,9 @@ public class ServerController {
 	 *            nombre de la cancion
 	 */
 	public void showCurrentSongName(String s) {
-
+		String ss = ComunicadorGeneral.getCurrentActivityName().toString();
 		if (s == null
-				|| !ComunicadorGeneral.getCurrentActivityName().equals(
-						Utilities.ActividadActual.valueOf("Spotify")))
+				|| !ss.equals("Spotify"))
 			return;
 		FragmentSpotify.showCurrentSongName(s);
 	}

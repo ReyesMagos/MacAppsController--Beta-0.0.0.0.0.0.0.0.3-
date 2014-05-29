@@ -12,12 +12,14 @@
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="dstAddress" />
+        android:hint="dstAddress"
+        android:inputType="number|text" />
     <EditText 
         android:id="@+id/port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="dstPort" />
+        android:hint="dstPort" 
+          android:inputType="number" />
 
     <TextView
         android:id="@+id/txtRecibo"
