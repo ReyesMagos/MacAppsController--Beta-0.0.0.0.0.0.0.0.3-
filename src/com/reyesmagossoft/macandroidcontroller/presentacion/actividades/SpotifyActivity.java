@@ -111,7 +111,7 @@ public class SpotifyActivity extends FragmentActivity {
 					boolean fromUser) {
 
 				sendMessage("volumen;"
-						+ Integer.toString(progress * 10));
+						+ Integer.toString(progress*10));
 				// TODO Auto-generated method stub
 
 			}
