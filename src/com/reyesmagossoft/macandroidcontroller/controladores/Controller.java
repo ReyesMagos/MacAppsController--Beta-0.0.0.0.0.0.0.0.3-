@@ -1,5 +1,7 @@
 package com.reyesmagossoft.macandroidcontroller.controladores;
 
+import com.reyesmagossoft.macandroidcontroller.servicios.Servidor;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -9,7 +11,13 @@ public abstract class Controller {
 	
 	private Activity activity;
 	private ProgressDialog progressDialog;
+	private Servidor server;
 	
+	public Controller(Activity activity) {
+		super();
+		this.activity = activity;
+	}
+
 	public void showAlertMessage(String title, String message){
 		   AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -26,6 +34,23 @@ public abstract class Controller {
 	        dialog.show();
 	}
 	
+	public void sendMessageToServer(String s) {
+		if (server == null) {
+			server = Servidor.getInstance();
+		}
+		server.sendMessage(s);
+	}
+	
+	
+	
+	public Servidor getServer() {
+		return server;
+	}
+
+	public void setServer(Servidor server) {
+		this.server = server;
+	}
+
 	public void showProgressDialog(String title, String message){
 		this.progressDialog = new ProgressDialog(getActivity());
         this.progressDialog.setCancelable(false);

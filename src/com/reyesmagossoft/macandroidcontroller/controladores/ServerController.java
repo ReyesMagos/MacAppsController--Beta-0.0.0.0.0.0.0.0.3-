@@ -1,5 +1,7 @@
 package com.reyesmagossoft.macandroidcontroller.controladores;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
@@ -12,7 +14,8 @@ import com.reyesmagossoft.macandroidcontroller.servicios.Servidor;
  * @author Oscarg798
  * 
  */
-public class ServerController {
+@SuppressWarnings("unused")
+public class ServerController extends Controller {
 
 	private Servidor server;
 	private boolean conectado;
@@ -25,10 +28,40 @@ public class ServerController {
 	 *            direccion ip del servidor
 	 * @param port
 	 *            puerto abierto por el servidor
+	 * @param activity
+	 *            Actividad que llama el controlador
 	 */
-	public ServerController(String ipPuerto, int port) {
-		server = new Servidor(ipPuerto, port);
+	public ServerController(String ipPuerto, int port, Activity activity) {
+		super(activity);
+		server = Servidor.getInstance();
+		server.setDstAddress(ipPuerto);
+		server.setDstPort(port);
+		super.setServer(server);
 
+	}
+
+	@Override
+	public void showAlertMessage(String title, String message) {
+		// TODO Auto-generated method stub
+		super.showAlertMessage(title, message);
+	}
+
+	@Override
+	public void showProgressDialog(String title, String message) {
+		// TODO Auto-generated method stub
+		super.showProgressDialog(title, message);
+	}
+
+	@Override
+	public void dissmissProgressDialog() {
+		// TODO Auto-generated method stub
+		super.dissmissProgressDialog();
+	}
+
+	@Override
+	public void setProgressDialog(ProgressDialog progressDialog) {
+		// TODO Auto-generated method stub
+		super.setProgressDialog(progressDialog);
 	}
 
 	/**
@@ -50,9 +83,7 @@ public class ServerController {
 	 * 
 	 */
 	public void sendMessageToServer(String s) {
-		if (server != null) {
-			server.sendMessage(s);
-		}
+		super.sendMessageToServer(s);
 	}
 
 	/**
@@ -75,20 +106,6 @@ public class ServerController {
 		conectado = true;
 	}
 
-	/**
-	 * Este metodo muestra el nombre actual de la cancion que esta sonando en el
-	 * spotify del cliente, este metodo debera ser pasado a un controlador
-	 * propio de Spotify, dado que contaremos con muchas aplicaciones.
-	 * 
-	 * @param s
-	 *            nombre de la cancion
-	 */
-	public void showCurrentSongName(String s) {
-		String ss = ComunicadorGeneral.getCurrentActivityName().toString();
-		if (s == null
-				|| !ss.equals("Spotify"))
-			return;
-		//FragmentSpotify.showCurrentSongName(s);
-	}
+
 
 }
