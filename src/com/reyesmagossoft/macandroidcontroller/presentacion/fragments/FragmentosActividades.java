@@ -8,6 +8,7 @@ import com.reyesmagossoft.macandroidcontroller.modelo.adaptadores.AdaptadorGridA
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
 import com.reyesmagossoft.macandroidcontroller.modelo.entidades.Aplicacion;
 import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities;
+import com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SafariActivity;
 import com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SpotifyActivity;
 
 import android.app.Fragment;
@@ -24,7 +25,6 @@ import android.widget.GridView;
 public class FragmentosActividades extends Fragment {
 
 	GridView gridAplicaciones;
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,33 +47,40 @@ public class FragmentosActividades extends Fragment {
 				v.getContext(), appsList);
 		gridAplicaciones = (GridView) v.findViewById(R.id.gridApplicaciones);
 		gridAplicaciones.setAdapter(adapter);
-		gridAplicaciones.setOnItemSelectedListener(new OnItemSelectedListener() {
+		gridAplicaciones
+				.setOnItemSelectedListener(new OnItemSelectedListener() {
 
-			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				// TODO Auto-generated method stub
-				Aplicacion a= (Aplicacion)arg0.getItemAtPosition(arg2);
-				Log.i("Gay",a.getNameApp().toString());
-				
-			}
+					@Override
+					public void onItemSelected(AdapterView<?> arg0, View arg1,
+							int arg2, long arg3) {
+						// TODO Auto-generated method stub
+						Aplicacion a = (Aplicacion) arg0
+								.getItemAtPosition(arg2);
+						Log.i("Gay", a.getNameApp().toString());
 
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		
+					}
+
+					@Override
+					public void onNothingSelected(AdapterView<?> arg0) {
+						// TODO Auto-generated method stub
+
+					}
+				});
+
 		gridAplicaciones.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				Aplicacion a= (Aplicacion)arg0.getItemAtPosition(arg2);
-				if(a.getNameApp().equals("Spotify")){
-					Utilities.changeActivity(SpotifyActivity.class);
+				// Aplicacion a= (Aplicacion)arg0.getItemAtPosition(arg2);
+				// if(a.getNameApp().equals("Spotify")){
+				// Utilities.changeActivity(SpotifyActivity.class);
+				// }
+				if(arg2==0){
+					 Utilities.changeActivity(SpotifyActivity.class);
+				}else if(arg2==1){
+					 Utilities.changeActivity(SafariActivity.class);
 				}
 			}
 		});

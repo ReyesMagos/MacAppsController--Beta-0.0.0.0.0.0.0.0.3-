@@ -32,6 +32,10 @@
             android:name="com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SelectApplications"
             android:label="@string/title_activity_select_applications" >
         </activity>
+        <activity
+            android:name="com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SafariActivity"
+            android:label="@string/title_activity_safari" >
+        </activity>
     </application>
 
 </manifest>
