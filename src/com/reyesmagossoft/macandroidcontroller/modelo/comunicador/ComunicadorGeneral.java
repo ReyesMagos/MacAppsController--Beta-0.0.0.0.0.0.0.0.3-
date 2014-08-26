@@ -2,7 +2,7 @@ package com.reyesmagossoft.macandroidcontroller.modelo.comunicador;
 
 import android.app.Activity;
 
-import com.reyesmagossoft.macandroidcontroller.modelo.controladores.ServerController;
+import com.reyesmagossoft.macandroidcontroller.controladores.ServerController;
 import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities;
 
 /**

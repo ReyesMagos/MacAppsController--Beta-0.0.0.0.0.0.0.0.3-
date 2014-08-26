@@ -1,10 +1,9 @@
-package com.reyesmagossoft.macandroidcontroller.modelo.controladores;
+package com.reyesmagossoft.macandroidcontroller.controladores;
 
 import android.content.Intent;
 
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
 import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities;
-import com.reyesmagossoft.macandroidcontroller.presentacion.fragments.FragmentSpotify;
 import com.reyesmagossoft.macandroidcontroller.servicios.Servidor;
 
 /**
@@ -89,7 +88,7 @@ public class ServerController {
 		if (s == null
 				|| !ss.equals("Spotify"))
 			return;
-		FragmentSpotify.showCurrentSongName(s);
+		//FragmentSpotify.showCurrentSongName(s);
 	}
 
 }

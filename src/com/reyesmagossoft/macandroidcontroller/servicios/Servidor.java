@@ -8,8 +8,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import com.reyesmagossoft.macandroidcontroller.controladores.ServerController;
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
-import com.reyesmagossoft.macandroidcontroller.modelo.controladores.ServerController;
 import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities.Resultado;
 
 import android.database.CursorJoiner.Result;

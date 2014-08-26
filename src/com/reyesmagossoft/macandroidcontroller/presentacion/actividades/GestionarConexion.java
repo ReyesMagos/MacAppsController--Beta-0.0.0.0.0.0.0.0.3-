@@ -1,8 +1,8 @@
 package com.reyesmagossoft.macandroidcontroller.presentacion.actividades;
 
 import com.example.androidclient.R;
+import com.reyesmagossoft.macandroidcontroller.controladores.ServerController;
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
-import com.reyesmagossoft.macandroidcontroller.modelo.controladores.ServerController;
 import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities;
 import com.reyesmagossoft.macandroidcontroller.servicios.Servidor;
 
