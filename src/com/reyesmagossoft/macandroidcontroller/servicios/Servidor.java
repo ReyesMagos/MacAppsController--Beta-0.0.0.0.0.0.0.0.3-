@@ -1,35 +1,36 @@
 package com.reyesmagossoft.macandroidcontroller.servicios;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import com.reyesmagossoft.macandroidcontroller.controladores.ServerController;
-import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
+import com.reyesmagossoft.macandroidcontroller.controladores.FacadeController;
 import com.reyesmagossoft.macandroidcontroller.modelo.utilidades.Utilities.Resultado;
 
-import android.database.CursorJoiner.Result;
 import android.os.AsyncTask;
 import android.util.Log;
 
 public class Servidor extends AsyncTask<Void, String, Boolean> {
 
-	String dstAddress;
-	int dstPort;
-	String response = "";
-	ObjectOutputStream out;
-	String firstResponse = "";
-	Resultado resultado;
+	private String dstAddress;
+	private int dstPort;
+	private String response = "";
+	private ObjectOutputStream out;
+	private String firstResponse = "";
+	private Resultado resultado;
+	private static  Servidor instance;
 
-	public Servidor(String addr, int port) {
+	private Servidor() {
 		super();
-		dstAddress = addr;
-		dstPort = port;
-
+		
+	}
+	
+	public static Servidor getInstance(){
+		if(instance==null)
+			instance= new Servidor();
+		return instance;
 	}
 
 	public void sendMessage(String msg) {
@@ -48,8 +49,10 @@ public class Servidor extends AsyncTask<Void, String, Boolean> {
 		// TODO Auto-generated method stub
 
 		super.onProgressUpdate(values);
-		ComunicadorGeneral.getController().showCurrentSongName(response);
-		Log.i("respuesta", response);
+		FacadeController facadeController = FacadeController.getInstance();
+		facadeController.showServerMessageInActivity(response, "spotify");
+				
+				Log.i("respuesta", response);
 	}
 
 	@Override
@@ -103,6 +106,55 @@ public class Servidor extends AsyncTask<Void, String, Boolean> {
 		return resultado;
 	}
 
+	
+	public String getDstAddress() {
+		return dstAddress;
+	}
+
+	public void setDstAddress(String dstAddress) {
+		this.dstAddress = dstAddress;
+	}
+
+	public int getDstPort() {
+		return dstPort;
+	}
+
+	public void setDstPort(int dstPort) {
+		this.dstPort = dstPort;
+	}
+
+	public String getResponse() {
+		return response;
+	}
+
+	public void setResponse(String response) {
+		this.response = response;
+	}
+
+	public ObjectOutputStream getOut() {
+		return out;
+	}
+
+	public void setOut(ObjectOutputStream out) {
+		this.out = out;
+	}
+
+	public String getFirstResponse() {
+		return firstResponse;
+	}
+
+	public void setFirstResponse(String firstResponse) {
+		this.firstResponse = firstResponse;
+	}
+
+	public Resultado getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(Resultado resultado) {
+		this.resultado = resultado;
+	}
+
 	@Override
 	protected void onPostExecute(Boolean result) {
 		// textResponse.setText(response);
@@ -110,9 +162,9 @@ public class Servidor extends AsyncTask<Void, String, Boolean> {
 		super.onPostExecute(result);
 		Log.i("respuesta", response);
 		if (result) {
-			ComunicadorGeneral.getController().showCurrentSongName(response);
+			//ComunicadorGeneral.getController().showCurrentSongName(response);
 		}else{
-			ComunicadorGeneral.getController().showCurrentSongName("Error");
+			//ComunicadorGeneral.getController().showCurrentSongName("Error");
 		}
 	}
 

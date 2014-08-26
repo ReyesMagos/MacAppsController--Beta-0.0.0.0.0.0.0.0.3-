@@ -12,18 +12,19 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.example.androidclient.R;
-import com.reyesmagossoft.macandroidcontroller.controladores.ServerController;
+import com.reyesmagossoft.macandroidcontroller.controladores.FacadeController;
+import com.reyesmagossoft.macandroidcontroller.controladores.SpotifyController;
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
 
 public class SpotifyActivity extends FragmentActivity {
-
-	private ServerController controller;
+	private FacadeController controller;
 	private SeekBar volumenBar;
-	private static TextView txtCancionActual;
+	private TextView txtCancionActual;
 	private ImageView btnPlay;
 	private ImageView btnNext;
 	private ImageView btnBack;
 	private ImageView btnTrackName;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,10 @@ public class SpotifyActivity extends FragmentActivity {
 		ComunicadorGeneral.setCurrentActivityName("Spotify");
 		initControlls();
 
+	}
+	
+	public void sendMessage(String message){
+		controller.sendMessageToServer(message, this);
 	}
 
 	@Override
@@ -42,7 +47,8 @@ public class SpotifyActivity extends FragmentActivity {
 	}
 
 	public void initControlls() {
-		controller = ComunicadorGeneral.getController();
+		controller = FacadeController.getInstance();
+		controller.registerActivityToControllers(this);
 		btnPlay = (ImageView) findViewById(R.id.btnPlayPause);
 		btnNext = (ImageView) findViewById(R.id.btnNext);
 		btnBack = (ImageView) findViewById(R.id.btnPreview);
@@ -53,7 +59,7 @@ public class SpotifyActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				controller.sendMessageToServer("nextSongName");
+				sendMessage("nextSongName");
 			}
 		});
 
@@ -62,7 +68,7 @@ public class SpotifyActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				controller.sendMessageToServer("play");
+				sendMessage("play");
 
 			}
 		});
@@ -72,7 +78,7 @@ public class SpotifyActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				controller.sendMessageToServer("next");
+				sendMessage("next");
 			}
 		});
 
@@ -81,7 +87,7 @@ public class SpotifyActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				controller.sendMessageToServer("back");
+				sendMessage("back");
 			}
 		});
 		volumenBar = (SeekBar) findViewById(R.id.volumenBar);
@@ -104,7 +110,7 @@ public class SpotifyActivity extends FragmentActivity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 
-				controller.sendMessageToServer("volumen;"
+				sendMessage("volumen;"
 						+ Integer.toString(progress * 10));
 				// TODO Auto-generated method stub
 
@@ -112,12 +118,56 @@ public class SpotifyActivity extends FragmentActivity {
 		});
 	}
 
-	public static void showCurrentSongName(String s) {
-		if (s == null || txtCancionActual == null)
-			return;
-		txtCancionActual.setText(" ");
-		Log.i("Escribire", s);
-		txtCancionActual.setText(s);
+
+
+	public SeekBar getVolumenBar() {
+		return volumenBar;
 	}
+
+	public void setVolumenBar(SeekBar volumenBar) {
+		this.volumenBar = volumenBar;
+	}
+
+	public TextView getTxtCancionActual() {
+		return txtCancionActual;
+	}
+
+	public void setTxtCancionActual(TextView txtCancionActual) {
+		this.txtCancionActual = txtCancionActual;
+	}
+
+	public ImageView getBtnPlay() {
+		return btnPlay;
+	}
+
+	public void setBtnPlay(ImageView btnPlay) {
+		this.btnPlay = btnPlay;
+	}
+
+	public ImageView getBtnNext() {
+		return btnNext;
+	}
+
+	public void setBtnNext(ImageView btnNext) {
+		this.btnNext = btnNext;
+	}
+
+	public ImageView getBtnBack() {
+		return btnBack;
+	}
+
+	public void setBtnBack(ImageView btnBack) {
+		this.btnBack = btnBack;
+	}
+
+	public ImageView getBtnTrackName() {
+		return btnTrackName;
+	}
+
+	public void setBtnTrackName(ImageView btnTrackName) {
+		this.btnTrackName = btnTrackName;
+	}
+
+	
 
 }

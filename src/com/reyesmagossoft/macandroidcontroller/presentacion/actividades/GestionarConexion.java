@@ -58,7 +58,7 @@ public class GestionarConexion extends Activity {
 			if (port != null && port.length() > 1) {
 				if (Utilities.checkNumberToText(port)) {
 					controladorServidor = new ServerController(ip,
-							Integer.parseInt(port));
+							Integer.parseInt(port), this);
 					controladorServidor.initServer();
 					ComunicadorGeneral.setController(controladorServidor);
 					controladorServidor
