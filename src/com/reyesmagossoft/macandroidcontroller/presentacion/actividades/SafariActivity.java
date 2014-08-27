@@ -32,13 +32,17 @@ public class SafariActivity extends Activity {
 			facadeController.sendMessageToServer("url;"
 					+ txtUrl.getText().toString(), this);
 	}
-	
-	public void btnBack_Click(View v){
+
+	public void btnBack_Click(View v) {
 		facadeController.sendMessageToServer("safariBack", this);
 	}
-	
-	public void btnForward_Click(View v){
-		facadeController.sendMessageToServer("safariDownPage", this);
+
+	public void btnForward_Click(View v) {
+		facadeController.sendMessageToServer("safariForward", this);
+	}
+
+	public void btnRefresh_Click(View v) {
+		facadeController.sendMessageToServer("safariRefresh", this);	
 	}
 
 	@Override
