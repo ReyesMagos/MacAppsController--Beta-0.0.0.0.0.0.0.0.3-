@@ -7,5 +7,6 @@
     <string name="title_activity_spotify">SpotifyActivity</string>
     <string name="title_activity_select_applications">SelectApplications</string>
     <string name="title_activity_safari">SafariActivity</string>
+    <string name="title_activity_key_note">KeyNoteActivity</string>
 
 </resources>

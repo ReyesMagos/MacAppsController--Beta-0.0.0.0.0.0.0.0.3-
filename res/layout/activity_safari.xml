@@ -86,21 +86,21 @@
         android:layout_weight="1" >
 
         <ImageView
-            android:id="@+id/btnScrollDown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:onClick="btnScrollDown_Click"
-            android:src="@drawable/nextbnt" />
-
-        <ImageView
             android:id="@+id/btnScrollUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:onClick="btnScrollUp_Click"
+            android:src="@drawable/nextbnt" />
+
+        <ImageView
+            android:id="@+id/btnScrollDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="btnScrollDown_Click"
             android:src="@drawable/nextbnt" />
     </LinearLayout>
 
