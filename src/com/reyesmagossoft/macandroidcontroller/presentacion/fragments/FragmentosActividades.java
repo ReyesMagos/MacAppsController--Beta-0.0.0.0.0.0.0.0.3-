@@ -3,6 +3,7 @@ package com.reyesmagossoft.macandroidcontroller.presentacion.fragments;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.androidclient.KeyNoteActivity;
 import com.example.androidclient.R;
 import com.reyesmagossoft.macandroidcontroller.modelo.adaptadores.AdaptadorGridAplicaciones;
 import com.reyesmagossoft.macandroidcontroller.modelo.comunicador.ComunicadorGeneral;
@@ -41,7 +42,9 @@ public class FragmentosActividades extends Fragment {
 		List<Aplicacion> appsList = new ArrayList<Aplicacion>();
 		Aplicacion a = new Aplicacion(R.drawable.ic_launcher, "Spotify");
 		appsList.add(a);
-		a = new Aplicacion(R.drawable.ic_launcher, "Chrome");
+		a = new Aplicacion(R.drawable.ic_launcher, "Safari");
+		appsList.add(a);
+		a = new Aplicacion(R.drawable.ic_launcher, "Keynote");
 		appsList.add(a);
 		AdaptadorGridAplicaciones adapter = new AdaptadorGridAplicaciones(
 				v.getContext(), appsList);
@@ -77,10 +80,12 @@ public class FragmentosActividades extends Fragment {
 				// if(a.getNameApp().equals("Spotify")){
 				// Utilities.changeActivity(SpotifyActivity.class);
 				// }
-				if(arg2==0){
-					 Utilities.changeActivity(SpotifyActivity.class);
-				}else if(arg2==1){
-					 Utilities.changeActivity(SafariActivity.class);
+				if (arg2 == 0) {
+					Utilities.changeActivity(SpotifyActivity.class);
+				} else if (arg2 == 1) {
+					Utilities.changeActivity(SafariActivity.class);
+				} else if (arg2 == 2) {
+					Utilities.changeActivity(KeyNoteActivity.class);
 				}
 			}
 		});

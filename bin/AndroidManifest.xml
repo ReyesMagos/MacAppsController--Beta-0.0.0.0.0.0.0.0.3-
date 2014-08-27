@@ -36,6 +36,10 @@
             android:name="com.reyesmagossoft.macandroidcontroller.presentacion.actividades.SafariActivity"
             android:label="@string/title_activity_safari" >
         </activity>
+        <activity
+            android:name=".KeyNoteActivity"
+            android:label="@string/title_activity_key_note" >
+        </activity>
     </application>
 
 </manifest>

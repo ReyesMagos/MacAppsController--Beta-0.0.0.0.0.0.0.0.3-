@@ -1,9 +1,6 @@
 package com.reyesmagossoft.macandroidcontroller.presentacion.actividades;
 
 import com.example.androidclient.R;
-import com.example.androidclient.R.id;
-import com.example.androidclient.R.layout;
-import com.example.androidclient.R.menu;
 import com.reyesmagossoft.macandroidcontroller.controladores.FacadeController;
 
 import android.app.Activity;
@@ -43,6 +40,14 @@ public class SafariActivity extends Activity {
 
 	public void btnRefresh_Click(View v) {
 		facadeController.sendMessageToServer("safariRefresh", this);	
+	}
+	
+	public void btnScrollDown_Click(View v) {
+		facadeController.sendMessageToServer("safariScrollDown", this);	
+	}
+	
+	public void btnScrollUp_Click(View v) {
+		facadeController.sendMessageToServer("safariScrollUp", this);	
 	}
 
 	@Override
