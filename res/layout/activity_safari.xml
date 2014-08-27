@@ -13,7 +13,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <TextView
             android:id="@+id/labelUrl"
@@ -37,9 +38,19 @@
         </EditText>
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/btnGetUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="btnGetUrl_Click"
+        android:src="@drawable/playbtn" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <ImageView
             android:id="@+id/btnBack"
@@ -51,13 +62,13 @@
             android:src="@drawable/backbtn" />
 
         <ImageView
-            android:id="@+id/btnGetUrl"
+            android:id="@+id/btnRefresh"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:onClick="btnGetUrl_Click"
-            android:src="@drawable/playbtn" />
+            android:onClick="btnRefresh_Click"
+            android:src="@drawable/nextbnt" />
 
         <ImageView
             android:id="@+id/btnForward"
@@ -69,13 +80,28 @@
             android:src="@drawable/nextbnt" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/btnRefresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:onClick="btnRefresh_Click"
-        android:src="@drawable/nextbnt" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:id="@+id/btnScrollDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="btnScrollDown_Click"
+            android:src="@drawable/nextbnt" />
+
+        <ImageView
+            android:id="@+id/btnScrollUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="btnScrollUp_Click"
+            android:src="@drawable/nextbnt" />
+    </LinearLayout>
 
 </LinearLayout>
