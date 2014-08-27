@@ -23,7 +23,7 @@ public class SpotifyActivity extends FragmentActivity {
 	private ImageView btnPlay;
 	private ImageView btnNext;
 	private ImageView btnBack;
-	private ImageView btnTrackName;
+
 
 
 	@Override
@@ -52,16 +52,8 @@ public class SpotifyActivity extends FragmentActivity {
 		btnPlay = (ImageView) findViewById(R.id.btnPlayPause);
 		btnNext = (ImageView) findViewById(R.id.btnNext);
 		btnBack = (ImageView) findViewById(R.id.btnPreview);
-		btnTrackName = (ImageView) findViewById(R.id.btnTrackName);
+	
 
-		btnTrackName.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				sendMessage("nextSongName");
-			}
-		});
 
 		btnPlay.setOnClickListener(new OnClickListener() {
 
@@ -160,14 +152,6 @@ public class SpotifyActivity extends FragmentActivity {
 		this.btnBack = btnBack;
 	}
 
-	public ImageView getBtnTrackName() {
-		return btnTrackName;
-	}
 
-	public void setBtnTrackName(ImageView btnTrackName) {
-		this.btnTrackName = btnTrackName;
-	}
-
-	
 
 }
