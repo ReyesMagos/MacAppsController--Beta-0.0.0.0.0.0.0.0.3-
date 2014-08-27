@@ -26,40 +26,47 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int backbtn=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int nextbnt=0x7f020002;
-        public static final int playbtn=0x7f020003;
+        public static final int back=0x7f020000;
+        public static final int backbtn=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int next=0x7f020003;
+        public static final int nextbnt=0x7f020004;
+        public static final int play=0x7f020005;
+        public static final int playbtn=0x7f020006;
+        public static final int presentacion=0x7f020007;
+        public static final int refresh=0x7f020008;
+        public static final int safari=0x7f020009;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f080000;
-        public static final int action_settings=0x7f08001b;
+        public static final int action_settings=0x7f08001c;
         public static final int address=0x7f080003;
         public static final int btnBack=0x7f08000c;
         public static final int btnForward=0x7f08000e;
         public static final int btnGetUrl=0x7f08000b;
         public static final int btnNext=0x7f080014;
         public static final int btnNextSlide=0x7f080002;
-        public static final int btnPlayPause=0x7f080012;
-        public static final int btnPreview=0x7f080013;
+        public static final int btnPlayPause=0x7f080013;
+        public static final int btnPreview=0x7f080012;
         public static final int btnPreviousSlide=0x7f080001;
         public static final int btnRefresh=0x7f08000d;
         public static final int btnScrollDown=0x7f080010;
         public static final int btnScrollUp=0x7f08000f;
-        public static final int btnTrackName=0x7f080016;
+        public static final int btnTrackName=0x7f08001b;
         public static final int clear=0x7f080007;
         public static final int connect=0x7f080006;
         public static final int fragment1=0x7f080011;
         public static final int gridApplicaciones=0x7f08001a;
         public static final int imgIconoApp=0x7f080019;
         public static final int labelUrl=0x7f080009;
+        public static final int labelVolumen=0x7f080015;
         public static final int port=0x7f080004;
         public static final int response=0x7f080008;
         public static final int txtCancionActual=0x7f080017;
         public static final int txtNombreApp=0x7f080018;
         public static final int txtRecibo=0x7f080005;
         public static final int txtUrl=0x7f08000a;
-        public static final int volumenBar=0x7f080015;
+        public static final int volumenBar=0x7f080016;
     }
     public static final class layout {
         public static final int activity_key_note=0x7f030000;
